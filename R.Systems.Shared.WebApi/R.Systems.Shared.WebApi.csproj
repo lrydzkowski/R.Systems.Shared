@@ -4,7 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Version>1.0.0</Version>
+    <Version>1.0.0-preview.1</Version>
+    <Authors>lrydzkowski</Authors>
+    <Description>Code used by ASP.NET Core 6 Web API projects inside R.Systems namespace.</Description>
+    <RepositoryUrl>https://github.com/lrydzkowski/R.Systems.Shared</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

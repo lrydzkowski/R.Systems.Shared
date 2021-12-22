@@ -6,14 +6,15 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5884124D-0165-4397-B42F-3B5D16A36C1E}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		LICENSE.md = LICENSE.md
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{981E55F7-32FF-4B06-ACF0-36436255904D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.Systems.Shared.Core", "R.Systems.Shared.Core\R.Systems.Shared.Core.csproj", "{AC67A5E0-400F-4509-8B68-FA5EB25478A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R.Systems.Shared.Core", "R.Systems.Shared.Core\R.Systems.Shared.Core.csproj", "{AC67A5E0-400F-4509-8B68-FA5EB25478A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.Systems.Shared.WebApi", "R.Systems.Shared.WebApi\R.Systems.Shared.WebApi.csproj", "{EDD69CB9-8428-4897-AD07-FBCD46B06D97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R.Systems.Shared.WebApi", "R.Systems.Shared.WebApi\R.Systems.Shared.WebApi.csproj", "{EDD69CB9-8428-4897-AD07-FBCD46B06D97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
