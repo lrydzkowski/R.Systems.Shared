@@ -8,9 +8,11 @@ namespace R.Systems.Shared.WebApi.Swagger;
 
 public class SwaggerGenOptionsConfigurator : IConfigureNamedOptions<SwaggerGenOptions>
 {
+    public static string SwaggerPageTitle { get; set; } = "R.Systems";
+
     public void Configure(string name, SwaggerGenOptions options)
     {
-        options.SwaggerDoc("v1", new OpenApiInfo { Title = "R.Systems.Auth", Version = "v1" });
+        options.SwaggerDoc("v1", new OpenApiInfo { Title = SwaggerPageTitle, Version = "v1" });
         options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
             Description = @"Example: 'Bearer 12345abcdef'",

@@ -27,8 +27,12 @@ public static class ServiceCollectionExtensions
         services.ConfigureOptions<JwtBearerOptionsConfigurator>();
     }
 
-    public static void AddSwaggerServices(this IServiceCollection services)
+    public static void AddSwaggerServices(this IServiceCollection services, string? swaggerPageTitle = null)
     {
+        if (swaggerPageTitle != null)
+        {
+            SwaggerGenOptionsConfigurator.SwaggerPageTitle = swaggerPageTitle;
+        }
         services.AddSwaggerGen();
         services.ConfigureOptions<SwaggerGenOptionsConfigurator>();
     }
