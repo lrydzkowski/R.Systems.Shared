@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace R.Systems.Shared.FunctionalTests.Services;
 
-internal class RequestService
+public class RequestService
 {
     public async Task<(HttpStatusCode, TResp?)> SendPostAsync<TReq, TResp>(
         string url, TReq request, HttpClient httpClient, string? accessToken = null) where TResp : class

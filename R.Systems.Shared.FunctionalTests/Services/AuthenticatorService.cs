@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace R.Systems.Shared.FunctionalTests.Services;
 
-internal class AuthenticatorService
+public class AuthenticatorService
 {
     public string GenerateAccessToken(
         long userId,

@@ -1,19 +1,28 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using R.Systems.Shared.Core.Validation;
 using R.Systems.Shared.WebApiTest.Models;
 using R.Systems.Shared.WebApiTest.Services;
+using R.Systems.Shared.WebApiTest.Validation;
 
 namespace R.Systems.Shared.WebApiTest.Controllers;
 
 [ApiController, Route("entities")]
 public class EntityController : ControllerBase
 {
-    public EntitiesService EntitiesService { get; }
-
-    public EntityController(EntitiesService entitiesService)
+    public EntityController(
+        EntitiesService entitiesService,
+        EntityValidator entityValidator,
+        ValidationResult validationResult)
     {
         EntitiesService = entitiesService;
+        EntityValidator = entityValidator;
+        ValidationResult = validationResult;
     }
+
+    public EntitiesService EntitiesService { get; }
+    public EntityValidator EntityValidator { get; }
+    public ValidationResult ValidationResult { get; }
 
     [HttpGet, Authorize(Roles = "admin")]
     public IActionResult GetEntities()
@@ -36,16 +45,24 @@ public class EntityController : ControllerBase
     [HttpPost, Authorize(Roles = "admin")]
     public IActionResult CreateEntity(Entity entity)
     {
+        if (!EntityValidator.Validate(entity))
+        {
+            return BadRequest(ValidationResult.Errors);
+        }
         return Ok();
     }
 
     [HttpPost, Route("{entityId}"), Authorize(Roles = "admin")]
     public IActionResult UpdateEntity(long entityId, Entity entity)
     {
+        if (!EntityValidator.Validate(entity, entityId))
+        {
+            return BadRequest(ValidationResult.Errors);
+        }
         return Ok();
     }
 
-    [HttpDelete, Authorize(Roles = "admin")]
+    [HttpDelete, Route("{entityId}"), Authorize(Roles = "admin")]
     public IActionResult DeleteEntity(long entityId)
     {
         return Ok();

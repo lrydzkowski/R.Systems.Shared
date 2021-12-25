@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace R.Systems.Shared.FunctionalTests.Services;
 
-internal class RsaKeysService
+public class RsaKeysService
 {
     public string GetPrivateKey()
     {

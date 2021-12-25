@@ -1,31 +1,14 @@
-﻿using R.Systems.Shared.FunctionalTests.Initializers;
-using R.Systems.Shared.FunctionalTests.Services;
+﻿using R.Systems.Shared.FunctionalTests.Services;
 using R.Systems.Shared.WebApiTest.Models;
 using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace R.Systems.Shared.FunctionalTests;
+namespace R.Systems.Shared.FunctionalTests.Tests.EntityTests;
 
-public class GetEntityTests : IClassFixture<CustomWebApplicationFactory<Program>>
+public class GetEntityTests : EntityControllerTests
 {
-    private const string EntitiesUrl = "/entities";
-
-    public GetEntityTests()
-    {
-        HttpClient = new CustomWebApplicationFactory<Program>().CreateClient();
-        RequestService = new RequestService();
-        AuthenticatorService = new AuthenticatorService();
-        RsaKeysService = new RsaKeysService();
-    }
-
-    public HttpClient HttpClient { get; }
-    internal RequestService RequestService { get; }
-    internal AuthenticatorService AuthenticatorService { get; }
-    internal RsaKeysService RsaKeysService { get; }
-
     [Fact]
     public async Task GetEntity_WithoutAuthenticationToken_Unauthorized()
     {
