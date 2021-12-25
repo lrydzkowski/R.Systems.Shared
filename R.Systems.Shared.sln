@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5884124D-0165-4397-B42F-3B5D16A36C1E}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
 		LICENSE.md = LICENSE.md
 		README.md = README.md
 	EndProjectSection
@@ -18,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R.Systems.Shared.WebApi", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BC2FA0F4-3F69-4BE4-A370-645FE5D27DB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.Systems.Shared.WebApiTest", "R.Systems.Shared.WebApiTest\R.Systems.Shared.WebApiTest.csproj", "{C1AE3636-BF03-412A-AA29-1784FCB291FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R.Systems.Shared.WebApiTest", "R.Systems.Shared.WebApiTest\R.Systems.Shared.WebApiTest.csproj", "{C1AE3636-BF03-412A-AA29-1784FCB291FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R.Systems.Shared.FunctionalTests", "R.Systems.Shared.FunctionalTests\R.Systems.Shared.FunctionalTests.csproj", "{F7316922-CDA3-4969-83EC-9881FAC3446B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R.Systems.Shared.FunctionalTests", "R.Systems.Shared.FunctionalTests\R.Systems.Shared.FunctionalTests.csproj", "{F7316922-CDA3-4969-83EC-9881FAC3446B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
