@@ -14,10 +14,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\R.Systems.Shared.Core\R.Systems.Shared.Core.csproj" />
     <ProjectReference Include="..\R.Systems.Shared.WebApi\R.Systems.Shared.WebApi.csproj" />
   </ItemGroup>

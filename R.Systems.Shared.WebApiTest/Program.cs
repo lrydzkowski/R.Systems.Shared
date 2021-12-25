@@ -1,20 +1,23 @@
+using NLog;
+using NLog.Web;
 using R.Systems.Shared.WebApi.Middlewares;
-using R.Systems.Shared.WebApi.Serilog;
 using R.Systems.Shared.WebApiTest.DependencyInjection;
-using Serilog;
 
-Log.Logger = SerilogConfiguration.CreateBootstrapLogger();
-Log.Information("Starting up!");
+
+var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+logger.Debug("Starting up!");
 try
 {
     var builder = WebApplication.CreateBuilder(args);
-    builder.Host.UserSerilogWithStandardConfiguration();
 
     // Add services to the container.
 
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddServices(builder.Configuration);
+
+    builder.Logging.ClearProviders();
+    builder.Host.UseNLog();
 
     var app = builder.Build();
 
@@ -39,9 +42,9 @@ try
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "An unhandled exception occured during bootstrapping");
+    logger.Error(ex, "Stopped program because of exception");
 }
 finally
 {
-    Log.CloseAndFlush();
+    NLog.LogManager.Shutdown();
 }
