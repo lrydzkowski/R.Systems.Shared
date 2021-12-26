@@ -21,7 +21,7 @@ try
 
     var app = builder.Build();
 
-    app.UseSharedKernelExceptionHandler();
+    app.UseGlobalExceptionHandler();
 
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
