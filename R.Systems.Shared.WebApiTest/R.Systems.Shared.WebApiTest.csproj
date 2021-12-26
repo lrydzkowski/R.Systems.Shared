@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a17e5300-5df8-47f7-8bc7-8ba64d8718b7</UserSecretsId>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Version>1.0.0-preview.2</Version>
+    <Authors>lrydzkowski</Authors>
+    <Description>ASP.NET Core 6 test application that uses R.Systems.Shared.Core and R.Systems.Shared.WebApi libraries.</Description>
+    <RepositoryUrl>https://github.com/lrydzkowski/R.Systems.Shared</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\R.Systems.Shared.Core\R.Systems.Shared.Core.csproj" />
+    <ProjectReference Include="..\R.Systems.Shared.WebApi\R.Systems.Shared.WebApi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="R.Systems.Shared.FunctionalTests" />
+  </ItemGroup>
+
+</Project>
