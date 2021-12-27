@@ -1,5 +1,7 @@
 ﻿using FluentAssertions;
 using R.Systems.Shared.Core.Validation;
+using R.Systems.Shared.FunctionalTests.Initializers;
+using R.Systems.Shared.WebApiTest;
 using R.Systems.Shared.WebApiTest.Models;
 using System.Collections.Generic;
 using System.Net;
@@ -10,6 +12,10 @@ namespace R.Systems.Shared.FunctionalTests.Tests.EntityTests;
 
 public class UpdateEntityTests : EntityControllerTests
 {
+    public UpdateEntityTests(CustomWebApplicationFactory<Program> webApplicationFactory) : base(webApplicationFactory)
+    {
+    }
+
     [Fact]
     public async Task UpdateEntity_WithoutAuthenticationToken_Unauthorized()
     {

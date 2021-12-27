@@ -1,5 +1,6 @@
 ﻿using R.Systems.Shared.FunctionalTests.Initializers;
 using R.Systems.Shared.FunctionalTests.Services;
+using R.Systems.Shared.WebApiTest;
 using R.Systems.Shared.WebApiTest.Models.Responses;
 using System.Collections.Generic;
 using System.Net;
@@ -13,9 +14,9 @@ namespace R.Systems.Shared.FunctionalTests.Tests.HealthTests
     {
         protected const string EntitiesUrl = "/health";
 
-        public HealthTests()
+        public HealthTests(CustomWebApplicationFactory<Program> webApplicationFactory)
         {
-            HttpClient = new CustomWebApplicationFactory<Program>().CreateClient();
+            HttpClient = webApplicationFactory.CreateClient();
             RequestService = new RequestService();
             AuthenticatorService = new AuthenticatorService();
             RsaKeysService = new RsaKeysService();
