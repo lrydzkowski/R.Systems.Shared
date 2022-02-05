@@ -6,7 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>a17e5300-5df8-47f7-8bc7-8ba64d8718b7</UserSecretsId>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Version>1.0.0-preview.2</Version>
     <Authors>lrydzkowski</Authors>
     <Description>ASP.NET Core 6 test application that uses R.Systems.Shared.Core and R.Systems.Shared.WebApi libraries.</Description>
     <RepositoryUrl>https://github.com/lrydzkowski/R.Systems.Shared</RepositoryUrl>

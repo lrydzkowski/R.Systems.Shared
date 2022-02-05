@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using R.Systems.Shared.FunctionalTests.Initializers;
+using R.Systems.Shared.WebApiTest;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
@@ -7,6 +9,10 @@ namespace R.Systems.Shared.FunctionalTests.Tests.EntityTests;
 
 public class DeleteEntityTests : EntityControllerTests
 {
+    public DeleteEntityTests(CustomWebApplicationFactory<Program> webApplicationFactory) : base(webApplicationFactory)
+    {
+    }
+
     [Fact]
     public async Task DeleteEntity_WithoutAuthenticationToken_Unauthorized()
     {

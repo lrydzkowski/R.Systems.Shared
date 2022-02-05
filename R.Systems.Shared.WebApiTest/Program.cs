@@ -3,48 +3,57 @@ using NLog.Web;
 using R.Systems.Shared.WebApi.Middlewares;
 using R.Systems.Shared.WebApiTest.DependencyInjection;
 
+namespace R.Systems.Shared.WebApiTest;
 
-var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
-logger.Debug("Starting up!");
-try
+public class Program
 {
-    var builder = WebApplication.CreateBuilder(args);
-
-    // Add services to the container.
-
-    builder.Services.AddControllers();
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddServices(builder.Configuration);
-
-    builder.Logging.ClearProviders();
-    builder.Host.UseNLog();
-
-    var app = builder.Build();
-
-    app.UseGlobalExceptionHandler();
-
-    // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
+    public static void Main(string[] args)
     {
-        app.UseSwagger();
-        app.UseSwaggerUI();
+        var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+        logger.Debug("Starting up!");
+        try
+        {
+            WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+            InitNLog(builder);
+            ConfigureServices(builder);
+            WebApplication app = builder.Build();
+            Configure(app);
+            app.Run();
+        }
+        catch (Exception ex)
+        {
+            logger.Error(ex, "Stopped program because of exception");
+        }
+        finally
+        {
+            LogManager.Shutdown();
+        }
     }
 
-    app.UseHttpsRedirection();
+    private static void InitNLog(WebApplicationBuilder builder)
+    {
+        builder.Logging.ClearProviders();
+        builder.Host.UseNLog();
+    }
 
-    app.UseAuthentication();
+    private static void ConfigureServices(WebApplicationBuilder builder)
+    {
+        builder.Services.AddControllers();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddServices(builder.Configuration);
+    }
 
-    app.UseAuthorization();
-
-    app.MapControllers();
-
-    app.Run();
-}
-catch (Exception ex)
-{
-    logger.Error(ex, "Stopped program because of exception");
-}
-finally
-{
-    NLog.LogManager.Shutdown();
+    private static void Configure(WebApplication app)
+    {
+        app.UseGlobalExceptionHandler();
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+        app.UseHttpsRedirection();
+        app.UseAuthentication();
+        app.UseAuthorization();
+        app.MapControllers();
+    }
 }

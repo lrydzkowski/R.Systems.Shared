@@ -1,5 +1,6 @@
 ﻿using R.Systems.Shared.FunctionalTests.Initializers;
 using R.Systems.Shared.FunctionalTests.Services;
+using R.Systems.Shared.WebApiTest;
 using System.Net.Http;
 using Xunit;
 
@@ -9,9 +10,9 @@ public class EntityControllerTests : IClassFixture<CustomWebApplicationFactory<P
 {
     protected const string EntitiesUrl = "/entities";
 
-    public EntityControllerTests()
+    public EntityControllerTests(CustomWebApplicationFactory<Program> webApplicationFactory)
     {
-        HttpClient = new CustomWebApplicationFactory<Program>().CreateClient();
+        HttpClient = webApplicationFactory.CreateClient();
         RequestService = new RequestService();
         AuthenticatorService = new AuthenticatorService();
         RsaKeysService = new RsaKeysService();
