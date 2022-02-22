@@ -11,13 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{981E55F7-32FF-4B06-ACF0-36436255904D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{981E55F7-32FF-4B06-ACF0-36436255904D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R.Systems.Shared.Core", "R.Systems.Shared.Core\R.Systems.Shared.Core.csproj", "{AC67A5E0-400F-4509-8B68-FA5EB25478A3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R.Systems.Shared.WebApi", "R.Systems.Shared.WebApi\R.Systems.Shared.WebApi.csproj", "{EDD69CB9-8428-4897-AD07-FBCD46B06D97}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BC2FA0F4-3F69-4BE4-A370-645FE5D27DB3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BC2FA0F4-3F69-4BE4-A370-645FE5D27DB3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R.Systems.Shared.WebApiTest", "R.Systems.Shared.WebApiTest\R.Systems.Shared.WebApiTest.csproj", "{C1AE3636-BF03-412A-AA29-1784FCB291FA}"
 EndProject
